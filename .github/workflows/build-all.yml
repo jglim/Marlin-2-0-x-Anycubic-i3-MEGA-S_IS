@@ -21,7 +21,7 @@ on:
 jobs:
   build:
     name: Build
-    if: github.repository == 'knutwurst/Marlin-2-0-x-Anycubic-i3-MEGA-S'
+    if: github.repository == 'jglim/Marlin-2-0-x-Anycubic-i3-MEGA-S_IS'
 
     runs-on: ubuntu-latest
 
@@ -29,64 +29,7 @@ jobs:
        matrix:
          platform:
          # Knutwurst Base Environments
-         - MEGA_1G
-         - MEGA_1G_TMC
-         - MEGA_1G_BLT_10
-         - MEGA_1G_BLT_11
-         - MEGA_1G_TMC_BLT_10
-         - MEGA_1G_TMC_BLT_11
-         - MEGA
-         - MEGA_TMC
-         - MEGA_BLT_10
-         - MEGA_BLT_11
-         - MEGA_TMC_BLT_10
-         - MEGA_TMC_BLT_11
          - MEGA_S
-         - MEGA_S_TMC
-         - MEGA_S_BLT_10
-         - MEGA_S_BLT_11
-         - MEGA_S_TMC_BLT_10
-         - MEGA_S_TMC_BLT_11
-         - MEGA_S_DGUS
-         - MEGA_S_DGUS_TMC
-         - MEGA_S_DGUS_BLT_10
-         - MEGA_S_DGUS_BLT_11
-         - MEGA_S_DGUS_TMC_BLT_10
-         - MEGA_S_DGUS_TMC_BLT_11
-         - MEGA_X
-         - MEGA_X_TMC
-         - MEGA_X_BLT_10
-         - MEGA_X_BLT_11
-         - MEGA_X_TMC_BLT_10
-         - MEGA_X_TMC_BLT_11
-         - MEGA_X_DGUS
-         - MEGA_X_DGUS_TMC
-         - MEGA_X_DGUS_BLT_10
-         - MEGA_X_DGUS_BLT_11
-         - MEGA_X_DGUS_TMC_BLT_10
-         - MEGA_X_DGUS_TMC_BLT_11
-         - MEGA_P_DGUS
-         - MEGA_P_DGUS_TMC
-         - MEGA_P_DGUS_BLT_10
-         - MEGA_P_DGUS_BLT_11
-         - MEGA_P_DGUS_TMC_BLT_10
-         - MEGA_P_DGUS_TMC_BLT_11
-         - CHIRON
-         - CHIRON_TMC
-         - CHIRON_DGUS
-         - CHIRON_DGUS_TMC
-         - 4MAXP2
-         - 4MAXP2_TMC
-         - 4MAXP2_BLT_10
-         - 4MAXP2_BLT_11
-         - 4MAXP2_TMC_BLT_10
-         - 4MAXP2_TMC_BLT_11
-         - 4MAXP2_DGUS
-         - 4MAXP2_DGUS_TMC
-         - 4MAXP2_DGUS_BLT_10
-         - 4MAXP2_DGUS_BLT_11
-         - 4MAXP2_DGUS_TMC_BLT_10
-         - 4MAXP2_DGUS_TMC_BLT_11
 
     steps:
 
@@ -126,6 +69,6 @@ jobs:
     - name: Archive all artifacts into one ZIP file
       uses: actions/upload-artifact@v3
       with:
-        name: Knuwurst-all-in-one-${{github.sha}}
+        name: Output-${{github.sha}}
         path: |
          .pio/build/${{ matrix.platform }}/${{ matrix.platform }}_v*.hex
